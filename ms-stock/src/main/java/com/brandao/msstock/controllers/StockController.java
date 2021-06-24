@@ -1,6 +1,8 @@
 package com.brandao.msstock.controllers;
 
 import com.brandao.msstock.services.StockService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.env.Environment;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 
+@Tag(name = "Stock controller")
 @RestController
 @RequestMapping("/stock")
 public class StockController {
@@ -27,6 +30,7 @@ public class StockController {
         this.environment = environment;
     }
 
+    @Operation(summary = "Get the price of a stock by stock code")
     @GetMapping("/price/{name}")
     public ResponseEntity<Object> getStockPrice(@PathVariable String name) throws IOException {
 
