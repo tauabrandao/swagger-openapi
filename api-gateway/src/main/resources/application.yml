@@ -12,4 +12,12 @@ spring:
       discovery:
         locator:
           enabled: true
-          lower-case-service-id: true
+      routes:
+      - id: ms-transaction
+        uri: lb://ms-transaction
+        predicates:
+        - Path=/transaction/**
+      - id: ms-stock
+        uri: lb://ms-stock
+        predicates:
+        - Path=/stock/**
