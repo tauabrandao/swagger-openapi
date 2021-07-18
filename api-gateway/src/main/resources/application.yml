@@ -17,7 +17,13 @@ spring:
         uri: lb://ms-transaction
         predicates:
         - Path=/transaction/**
+
+#      qualquer coisa
       - id: ms-stock
+
+#        nome da aplicação registrada no service discovery
         uri: lb://ms-stock
+
         predicates:
+#        mapeamento no controlador
         - Path=/stock/**
